@@ -66,7 +66,7 @@ func isZeroInNumbers(numbers: String) -> Bool {
 }
 
 func isValidate(inputNumbers: String) -> Bool {
-    if  isNumbersCountThree(numbers: inputNumbers) || validateOverlappingNumbers(numbers: inputNumbers) || isZeroInNumbers(numbers: inputNumbers) {
+    if  isNumbersCountThree(numbers: inputNumbers) || isvalidateOverlappingNumbers(numbers: inputNumbers) || isZeroInNumbers(numbers: inputNumbers) {
         return false
     } else{
         return true
