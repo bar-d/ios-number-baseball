@@ -57,7 +57,7 @@ func isNumbersCountThree(numbers: String) -> Bool {
     return numbers.filter({$0.isNumber }).count != 3
 }
 
-func validateOverlappingNumbers(numbers: String) -> Bool {
+func isvalidateOverlappingNumbers(numbers: String) -> Bool {
     return Set(numbers).count != 4
 }
 
