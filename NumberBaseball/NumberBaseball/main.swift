@@ -12,6 +12,15 @@ let arrayExtent = 0...2
 let gameOverStrikeCount = 3
 let gameOverTryCount = 0
 
+private enum Numbers {
+    static let countNumber = 3
+    static let randomNumberRange = 1...9
+    static let arrayExtent = 0...2
+    static let gameOverStrikeCount = 3
+    static let gameOverTryCount = 0
+    static let repeatCheck = true
+}
+
 func printMenu() {
     print("1. 게임시작")
     print("2. 게임종료")
@@ -76,8 +85,8 @@ func isValidate(inputNumbers: String) -> Bool {
 func threeNonOverlappingRandomNumbers() -> Set<Int> {
     var randomNumbers = Set<Int>()
     
-    while randomNumbers.count < countNumber {
-        randomNumbers.insert(Int.random(in: randomNumberRange))
+    while randomNumbers.count < Numbers.countNumber {
+        randomNumbers.insert(Int.random(in: Numbers.randomNumberRange))
     }
     return randomNumbers
 }
@@ -88,7 +97,7 @@ func countStrikeOrBall(computerNumbers: [Int], tryCount: Int, userSuggestNumbers
     var strikeCount = 0
     var ballCount = 0
     
-    for index in arrayExtent {
+    for index in Numbers.arrayExtent {
         if computerNumbers[index] == splitedUserSuggestThreeNumbers[index] {
             strikeCount += 1
         } else if splitedUserSuggestThreeNumbers.contains(computerNumbers[index]) {
@@ -113,13 +122,13 @@ func gameStart() {
 }
 
 func checkGameOver(strikeTryCount: (Int, Int)) {
-    if strikeTryCount.0 == gameOverStrikeCount || strikeTryCount.1 == gameOverTryCount {
+    if strikeTryCount.0 == Numbers.gameOverStrikeCount || strikeTryCount.1 == Numbers.gameOverTryCount {
         repeatCheck = false
     }
     
-    if strikeTryCount.0 == gameOverStrikeCount {
+    if strikeTryCount.0 == Numbers.gameOverStrikeCount {
         print("사용자 승리…!")
-    } else if strikeTryCount.1 == gameOverTryCount {
+    } else if strikeTryCount.1 == Numbers.gameOverTryCount {
         print("컴퓨터 승리…!")
     }
 }
